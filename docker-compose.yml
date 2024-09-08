@@ -1,0 +1,22 @@
+version: '3'
+services:
+  entry_node:
+    build: .
+    ports:
+      - "5001:5000"
+    environment:
+      - NODE_TYPE=entry
+
+  relay_node:
+    build: .
+    ports:
+      - "5002:5000"
+    environment:
+      - NODE_TYPE=relay
+
+  exit_node:
+    build: .
+    ports:
+      - "5003:5000"
+    environment:
+      - NODE_TYPE=exit
