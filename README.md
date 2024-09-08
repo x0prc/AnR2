@@ -31,4 +31,7 @@ Run the Flask server <br>
 Run the Node Server <br>
 `npm start`
 
+WebSocket Support <br>
+`pip install flask-socketio` 
+
 # Documentation
