@@ -1,4 +1,5 @@
-# AnR2
+
+![A](https://github.com/user-attachments/assets/b422e604-047c-471d-bad6-12f05884ea94)
 A Proof-of-Concept Project prepared in accordance to create Anonymous Routing for files/messages.
 
 # Motivation
