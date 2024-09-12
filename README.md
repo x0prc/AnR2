@@ -36,3 +36,4 @@ WebSocket Support <br>
 `pip install flask-socketio` 
 
 # Documentation
+<img width="2560" alt="AnR2-Flow" src="https://github.com/user-attachments/assets/306297a5-aefb-45d8-87be-bca5188a50f8">
