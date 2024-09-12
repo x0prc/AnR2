@@ -35,5 +35,5 @@ Run the Node Server <br>
 WebSocket Support <br>
 `pip install flask-socketio` 
 
-# Documentation
+# Working Mechanism Flow
 <img width="2560" alt="AnR2-Flow (1)" src="https://github.com/user-attachments/assets/f6f7c7b1-f1d4-4888-ae09-515a6d1e4528">
