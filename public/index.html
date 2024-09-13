@@ -1,100 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnR2</title>
-    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .container {
-            width: 100%;
-            max-width: 600px;
-            margin: auto;
-        }
-        #messageBox {
-            border: 1px solid #ccc;
-            padding: 10px;
-            height: 200px;
-            overflow-y: scroll;
-            margin-bottom: 10px;
-        }
-        .input-container {
-            display: flex;
-        }
-        .input-container input {
-            width: 80%;
-            padding: 10px;
-        }
-        .input-container button {
-            width: 20%;
-            padding: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garlic Routing Message Encryption</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+    .output-section {
+      margin-top: 2rem;
+    }
+    .output-text {
+      background-color: #e9ecef;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>AnR2</h1>
-        <div id="messageBox"></div>
-        <div class="input-container">
-            <input type="text" id="messageInput" placeholder="Enter your message" />
-            <button onclick="sendMessage()">Send</button>
-        </div>
+  <div class="container">
+    <h1 class="text-center">AnR2 -- (Garlic Routing + AES + Mixed Networks)</h1>
+    <form id="message-form">
+      <div class="mb-3">
+        <label for="userMessage" class="form-label">Enter your message:</label>
+        <input type="text" class="form-control" id="userMessage" placeholder="Type your message here">
+      </div>
+      <button type="submit" class="btn btn-primary">Encrypt Message</button>
+    </form>
+
+    <div class="output-section">
+      <h3>Encrypted Message:</h3>
+      <div id="encryptedOutput" class="output-text">Your encrypted message will appear here...</div>
     </div>
+  </div>
 
-    <script>
-        // Connect to WebSocket server
-        const socket = io();
-
-        socket.on('connect', () => {
-            addMessage('Connected to WebSocket server');
-        });
-
-        // Listen for messages from the server
-        socket.on('message', (data) => {
-            addMessage(`Server: ${data}`);
-        });
-
-        // Function to send messages via WebSocket
-        function sendMessage() {
-            const message = document.getElementById('messageInput').value;
-            socket.emit('send_encrypted', message);
-            addMessage(`You: ${message}`);
-            document.getElementById('messageInput').value = '';
-        }
-
-        // Listen for encrypted message response from server
-        socket.on('receive_encrypted', (data) => {
-            addMessage(`Encrypted message: ${data}`);
-        });
-
-        // Utility function to add messages to the message box
-        function addMessage(message) {
-            const messageBox = document.getElementById('messageBox');
-            const messageElement = document.createElement('div');
-            messageElement.textContent = message;
-            messageBox.appendChild(messageElement);
-            messageBox.scrollTop = messageBox.scrollHeight;
-        }
-
-        // Function to send message using the API (POST request)
-        async function sendMessageViaAPI() {
-            const message = document.getElementById('messageInput').value;
-            const response = await fetch('/api/send', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ message }),
-            });
-
-            const result = await response.json();
-            addMessage(`API Response: ${result.response}`);
-            document.getElementById('messageInput').value = '';
-        }
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/index.js"></script>
 </body>
 </html>
