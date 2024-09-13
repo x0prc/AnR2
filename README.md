@@ -1,6 +1,6 @@
 
 ![A](https://github.com/user-attachments/assets/b422e604-047c-471d-bad6-12f05884ea94)
-A Proof-of-Concept Project prepared in accordance to create Anonymous Routing for files/messages.
+A Proof-of-Concept Project prepared in accordance to create Anonymous Routing for files/messages. It is similar to Onion Routing but enhances performance by bundling multiple messages together. This project allows users to send a message, which is then encrypted on the backend via a simplified Garlic Routing mechanism, and the encrypted message is displayed back to the user.
 
 # Motivation
 Inspiration for this project came from communicating with a person whom I wanted to share a message without anyone else knowing about the secret. I could've just used pre-existent methods, but where is the nerve-wracking hardwork in that ;). 
@@ -35,5 +35,12 @@ Run the Node Server <br>
 WebSocket Support <br>
 `pip install flask-socketio` 
 
+Run the Vercel Instance <br>
+`npm run vercel-build`
+
 # Working Mechanism Flow
 <img width="2560" alt="AnR2-Flow (1)" src="https://github.com/user-attachments/assets/f6f7c7b1-f1d4-4888-ae09-515a6d1e4528">
+
+# Future Enhancements
+True Garlic Routing: Implement full garlic routing encryption where multiple messages are bundled and routed through multiple nodes.
+User Authentication: Add user authentication for tracking messages securely.
